@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" media="screen, print" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js"></script>
+    <title>HTML to Image</title>
+  </head>
+  <body>
+    <div class="form">
+      <textarea id="imageText" rows="4" cols="50"></textarea>
+      <br>
+      <button id="download">Download</button>
+    </div>
+
+    <center>
+    <div id="canvas" class="canvas">
+      <h2 id="defaultImageText">
+        Default Text !
+      </h2>
+    </div>
+    </center>
+
+    <script>
+      $("#imageText").keyup(function() {
+        var val = $(this).val();
+        $("#defaultImageText").html(val);
+      });
+
+      $("#download").click(function() {
+        domtoimage.toBlob(document.getElementById('canvas'),  {
+        height: 250,
+        width: 250
+        })
+        .then(function (blob) {
+            window.saveAs(blob, 'downloadedImage.png');
+        });
+      });
+    </script>
+  </body>
+</html>
+

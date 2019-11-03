@@ -1,0 +1,28 @@
+* {
+  font-variant-ligatures: normal;
+}
+
+html,
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+
+.form{
+  margin: 100px 0 100px 0;
+  text-align: center;
+}
+
+.canvas {
+  background: red;
+  color: #FFFFFF;
+  position: relative;
+  text-align: center;
+  width: 250px;
+  height: 250px;
+  box-sizing: border-box;
+  border: 2px #0d3e5e solid;
+  background-image: url("");
+  background-size: cover;
+}
